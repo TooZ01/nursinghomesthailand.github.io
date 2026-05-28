@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nursing Homes Thailand - Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/></filter></defs><rect width="1920" height="1080" fill="%231a1a1a"/><rect width="1920" height="1080" fill="%232d5016" opacity="0.4" filter="url(%23noise)"/><g opacity="0.3"><ellipse cx="200" cy="150" rx="300" ry="500" fill="%2366bb6a"/><ellipse cx="1600" cy="800" rx="400" ry="600" fill="%2366bb6a"/><ellipse cx="900" cy="500" rx="500" ry="400" fill="%2344a956"/></g><g opacity="0.25"><path d="M100 400 Q200 300 300 400 T500 400" stroke="%2366bb6a" stroke-width="40" fill="none" filter="url(%23noise)"/><path d="M1400 200 Q1500 300 1600 200 T1800 200" stroke="%2366bb6a" stroke-width="40" fill="none" filter="url(%23noise)"/></g></svg>') center/cover no-repeat;
+            background-color: #1a1a1a;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 30% 40%, rgba(102, 187, 106, 0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 70%, rgba(68, 169, 86, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            width: 100%;
+            max-width: 1000px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .top-email {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-size: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 1px;
+            animation: fadeInRight 1.5s ease-out;
+            z-index: 10;
+        }
+
+        .email-text {
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        .main-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .line1 {
+            animation: slideInLeft 1.2s ease-out 0.2s both;
+            display: block;
+        }
+
+        .line2 {
+            animation: slideInLeft 1.2s ease-out 0.4s both;
+            display: block;
+        }
+
+        .line3 {
+            animation: slideInLeft 1.2s ease-out 0.6s both;
+            display: block;
+        }
+
+        .tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 3vw, 2.2rem);
+            font-weight: 400;
+            font-style: italic;
+            margin: 40px 0 60px 0;
+            color: rgba(255, 255, 255, 0.95);
+            animation: slideInUp 1s ease-out 0.8s both;
+            letter-spacing: 2px;
+        }
+
+        .description {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-weight: 400;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            color: rgba(255, 255, 255, 0.88);
+            animation: slideInUp 1.2s ease-out 1s both;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.05);
+            letter-spacing: 1px;
+            animation: slideInUp 1.2s ease-out 1.2s both;
+        }
+
+        .cta-button:hover {
+            border-color: rgba(255, 255, 255, 1);
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 187, 106, 0.2);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                min-height: auto;
+                padding-top: 80px;
+            }
+
+            .top-email {
+                position: static;
+                margin-bottom: 40px;
+                font-size: 0.9rem;
+            }
+
+            .main-heading {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+            }
+
+            .tagline {
+                font-size: 1.4rem;
+                margin: 30px 0 40px 0;
+            }
+
+            .description {
+                font-size: 1rem;
+                margin-bottom: 30px;
+                padding: 0 15px;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-heading {
+                font-size: 1.8rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+                letter-spacing: 1px;
+            }
+
+            .description {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-email">
+            email : <span class="email-text">nursinghomesthailand@gmail.com</span>
+        </div>
+
+        <h1 class="main-heading">
+            <span class="line1">Dedicated</span>
+            <span class="line2">Nursing & Senior</span>
+            <span class="line3">Care in Thailand</span>
+        </h1>
+
+        <p class="tagline">Tailored to you.</p>
+
+        <p class="description">
+            From specialized medical attention to personal lifestyle choices, we match your family with the ideal senior care facility for complete peace of mind.
+        </p>
+
+        <a href="#" class="cta-button">Opening our doors soon</a>
+    </div>
+</body>
+</html>
